@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio d'Enzo Landrecy — développeur backend (C#/.NET, Java/Spring Boot, Rust)."
+    />
+    <title>Enzo Landrecy — Portfolio</title>
+    <script>
+      // Applique un choix explicite avant le premier rendu, pour éviter un
+      // clignotement. Sans choix stocké, aucun attribut n'est posé : le CSS
+      // suit alors `prefers-color-scheme`, et React fait de même.
+      try {
+        var saved = localStorage.getItem('portfolio.theme.v2')
+        if (saved === 'light' || saved === 'dark') {
+          document.documentElement.dataset.theme =
+            saved === 'dark' ? 'hackerdark' : 'hackerlight'
+        }
+        var lang = localStorage.getItem('portfolio.lang.v2')
+        document.documentElement.lang =
+          lang === 'fr' || lang === 'en' ? lang : navigator.language.slice(0, 2) === 'fr' ? 'fr' : 'en'
+      } catch (e) {
+        /* stockage indisponible : les valeurs par défaut du CSS s'appliquent */
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
