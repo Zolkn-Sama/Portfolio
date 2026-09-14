@@ -17,6 +17,7 @@ export type Ui = {
   decrypting: string
   wipe: string[]
   closing: string
+  quickAccessTitle: string
   footerNote: string
   tronBoard: string
   tronKills: string
@@ -141,6 +142,7 @@ export const ui: Record<Lang, Ui> = {
       '> SESSION FERMÉE',
     ],
     closing: 'FERMETURE…',
+    quickAccessTitle: 'Accès rapide — clique au lieu de taper',
     footerNote: 'Aucun système n’a réellement été piraté durant la conception de ce site.',
     tronBoard: 'Duels',
     tronKills: 'élim.',
@@ -276,6 +278,7 @@ export const ui: Record<Lang, Ui> = {
       '> SESSION CLOSED',
     ],
     closing: 'CLOSING…',
+    quickAccessTitle: 'Quick access — click instead of typing',
     footerNote: 'No system was actually hacked in the making of this website.',
     tronBoard: 'Duels',
     tronKills: 'kills',

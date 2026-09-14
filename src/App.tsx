@@ -4,14 +4,14 @@ import { PANEL_ID, Panel, type PanelTarget } from './components/Panel'
 import { Backdrop } from './components/Backdrop'
 import { TronTrails } from './components/TronTrails'
 import { Toolbar } from './components/Toolbar'
-import { resolveCommand } from './data/commands'
+import { commands, resolveCommand } from './data/commands'
 import { contact, identity } from './data/profile'
 import { useLang } from './i18n/LangContext'
 import { LogRail, SystemRail, type LogEntry } from './components/rails'
 import { Intrusion } from './games/Intrusion'
 import { Invaders } from './games/Invaders'
 import type { GameId } from './games/types'
-import { pushRoute, readGame, readSlug, slugFor } from './routing'
+import { pushRoute, readGame, readSlug, sectionHref, slugFor } from './routing'
 import photo160 from './assets/photo-160.webp'
 import photo320 from './assets/photo-320.webp'
 import photo480 from './assets/photo-480.webp'
@@ -95,6 +95,38 @@ function Hero() {
         </li>
       </ul>
     </header>
+  )
+}
+
+/**
+ * Rappel visuel des sections disponibles, pour les visiteurs qui ne
+ * comprennent pas qu’il faut saisir une commande dans la barre du haut.
+ */
+function QuickAccess({ onRun }: { onRun: (query: string) => void }) {
+  const { lang, t } = useLang()
+  return (
+    <div className="pt-2">
+      <p className="mb-2 text-center text-[0.65rem] tracking-[0.15em] text-base-content/45 uppercase">
+        {t.quickAccessTitle}
+      </p>
+      <ul className="flex flex-wrap justify-center gap-2">
+        {commands.map((cmd) => (
+          <li key={cmd.id}>
+            <a
+              href={sectionHref(cmd.id)}
+              onClick={(e) => {
+                e.preventDefault()
+                onRun(cmd.id)
+              }}
+              className="badge badge-outline gap-1.5 border-primary/40 px-3 py-3 text-primary transition-colors hover:bg-primary/10"
+            >
+              <span aria-hidden="true">{cmd.glyph}</span>
+              {cmd.label[lang]}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 
@@ -240,7 +272,7 @@ export default function App() {
       <div className="relative z-10 mx-auto grid max-w-[100rem] grid-cols-1 gap-6 px-4 py-6 sm:px-6 sm:py-10 xl:grid-cols-[15rem_minmax(0,52rem)_17rem] xl:justify-center">
         <SystemRail route={activeId ?? 'none'} onRun={run} />
 
-        <main className="mx-auto flex w-full min-w-0 max-w-3xl flex-col gap-6 xl:max-w-none">
+        <main className="order-1 mx-auto flex w-full min-w-0 max-w-3xl flex-col gap-6 xl:order-none xl:max-w-none">
           {/* Premier écran : la barre de saisie se cale en bas, au niveau
               où les rails latéraux s’arrêtent eux aussi. */}
           <section className="flex min-h-[calc(100dvh-3rem)] flex-col gap-8 sm:min-h-[calc(100dvh-5rem)]">
@@ -263,6 +295,8 @@ export default function App() {
             onRun={run}
             onClose={close}
           />
+
+          <QuickAccess onRun={run} />
 
           <footer className="mt-4 border-t border-base-300 pt-4 text-center text-[0.7rem] text-base-content/45">
             {t.footerNote}

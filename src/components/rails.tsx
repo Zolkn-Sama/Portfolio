@@ -99,7 +99,7 @@ export function SystemRail({
   })
 
   return (
-    <aside className="sticky top-10 hidden max-h-[calc(100dvh-5rem)] flex-col gap-2 overflow-y-auto xl:flex">
+    <aside className="order-2 flex flex-col gap-2 xl:sticky xl:top-10 xl:order-none xl:max-h-[calc(100dvh-5rem)] xl:overflow-y-auto">
       <div className="shrink-0 rounded-box border border-base-300 bg-base-200/40 p-3 text-[0.7rem]">
         <RailTitle>{t.railSystem}</RailTitle>
         <ul className="space-y-1">
@@ -166,7 +166,7 @@ export function LogRail({
   const { lang, L, t } = useLang()
 
   return (
-    <aside className="sticky top-10 hidden max-h-[calc(100dvh-5rem)] flex-col gap-2 overflow-y-auto xl:flex">
+    <aside className="order-3 flex flex-col gap-2 xl:sticky xl:top-10 xl:order-none xl:max-h-[calc(100dvh-5rem)] xl:overflow-y-auto">
       <div className="flex max-h-56 shrink-0 flex-col overflow-hidden rounded-box border border-base-300 bg-base-200/40 p-3 text-[0.7rem]">
         <RailTitle>{t.railLog}</RailTitle>
         {log.length === 0 ? (
