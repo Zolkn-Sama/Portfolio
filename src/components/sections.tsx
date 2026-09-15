@@ -19,6 +19,7 @@ import {
 } from '../data/profile'
 import { useLang } from '../i18n/LangContext'
 import { sectionHref } from '../routing'
+import { ImageCarousel } from './Carousel'
 
 /* ── Briques communes ──────────────────────────────────────────────────── */
 
@@ -101,6 +102,64 @@ function EntryList({ entries }: { entries: Entry[] }) {
     <div className="grid gap-4">
       {entries.map((entry, i) => (
         <EntryCard key={`${entry.org}-${entry.period}`} entry={entry} index={i} />
+      ))}
+    </div>
+  )
+}
+
+function ProjectCard({ entry, index }: { entry: Entry; index: number }) {
+  const { L } = useLang()
+  const carouselId = `project-${entry.org.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
+  return (
+    <article
+      className="rise-in rounded-box border border-base-300 bg-base-200/60 p-4 sm:p-5"
+      style={{ animationDelay: `${index * 70}ms` }}
+    >
+      <header className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+        <h3 className="text-base font-bold text-primary sm:text-lg">{entry.org}</h3>
+        <p className="text-xs text-base-content/60">
+          {L(entry.place)} · <span className="text-accent">{entry.period}</span>
+        </p>
+      </header>
+      <p className="mt-1 text-sm font-semibold">{L(entry.title)}</p>
+
+      {entry.images && entry.images.length > 0 && (
+        <div className="mt-3">
+          <ImageCarousel
+            images={entry.images}
+            folder="projects"
+            alt={entry.org}
+            carouselId={carouselId}
+          />
+        </div>
+      )}
+
+      <p className="mt-2 text-sm leading-relaxed text-base-content/80">
+        {L(entry.summary)}
+      </p>
+      {entry.bullets && (
+        <ul className="mt-3 space-y-1.5 text-sm leading-relaxed text-base-content/75">
+          {L(entry.bullets).map((bullet) => (
+            <li key={bullet} className="flex gap-2">
+              <span aria-hidden="true" className="shrink-0 text-primary">
+                •
+              </span>
+              <span>{bullet}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+      <StackChips stack={entry.stack} />
+      <EntryLinks entry={entry} />
+    </article>
+  )
+}
+
+function ProjectsSection() {
+  return (
+    <div className="grid gap-4">
+      {projects.map((entry, i) => (
+        <ProjectCard key={`${entry.org}-${entry.period}`} entry={entry} index={i} />
       ))}
     </div>
   )
@@ -631,7 +690,7 @@ export function SectionBody({
     case 'experience':
       return <EntryList entries={experience} />
     case 'projects':
-      return <EntryList entries={projects} />
+      return <ProjectsSection />
     case 'education':
       return <EntryList entries={education} />
     case 'skills':

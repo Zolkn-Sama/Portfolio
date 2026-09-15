@@ -83,6 +83,8 @@ export type Entry = {
   bullets?: LocalizedList
   stack?: string[]
   links?: EntryLink[]
+  /** Noms de fichiers dans `public/projects/`, dans l’ordre d’affichage du carrousel. */
+  images?: string[]
 }
 
 const CODE: Localized = { fr: 'Code source', en: 'Source code' }
@@ -149,6 +151,7 @@ export const projects: Entry[] = [
     },
     stack: ['Rust', 'Axum', 'Tokio', 'SeaORM', 'PostgreSQL + pgvector', 'Ollama', 'Next.js', 'Docker', 'testcontainers'],
     links: [{ label: CODE, href: 'https://github.com/Zolkn-Sama/Lodestone' }],
+    images: [],
   },
   {
     org: 'Sport Flow',
@@ -185,6 +188,7 @@ export const projects: Entry[] = [
       { label: CODE, href: 'https://github.com/Zolkn-Sama/m1-s2-web-projet' },
       { label: DEMO, href: 'https://sportflow.linv.dev' },
     ],
+    images: [],
   },
   {
     org: 'm1-s2-indu',
@@ -215,6 +219,7 @@ export const projects: Entry[] = [
       { label: CODE, href: 'https://github.com/Zolkn-Sama/m1-s2-indu' },
       { label: DOCS, href: 'https://linventif.github.io/m1-s2-indu' },
     ],
+    images: [],
   },
   {
     org: 'MediPlan',
@@ -246,6 +251,7 @@ export const projects: Entry[] = [
     },
     stack: ['C#', '.NET 6', 'Entity Framework Core', 'PostgreSQL', 'JWT', 'PlantUML', 'Docker Compose'],
     links: [{ label: CODE, href: 'https://github.com/Zolkn-Sama/R6.06-GestionRDV-main' }],
+    images: [],
   },
   {
     org: 'SAÉ 4.01 · Configurateur Tesla',
@@ -282,6 +288,7 @@ export const projects: Entry[] = [
       { label: { fr: 'API (C#)', en: 'API (C#)' }, href: 'https://github.com/Zolkn-Sama/API-Tesla-main' },
       { label: { fr: 'Client (Vue)', en: 'Client (Vue)' }, href: 'https://github.com/Zolkn-Sama/SAE4.01-Client_Tesla' },
     ],
+    images: [],
   },
 ]
 

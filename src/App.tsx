@@ -12,9 +12,6 @@ import { Intrusion } from './games/Intrusion'
 import { Invaders } from './games/Invaders'
 import type { GameId } from './games/types'
 import { pushRoute, readGame, readSlug, sectionHref, slugFor } from './routing'
-import photo160 from './assets/photo-160.webp'
-import photo320 from './assets/photo-320.webp'
-import photo480 from './assets/photo-480.webp'
 
 const BREACH_MS = 950
 const DECRYPT_MS = 900
@@ -29,19 +26,6 @@ function Hero() {
   const { L, t } = useLang()
   return (
     <header className="flex flex-col items-center gap-5 text-center">
-      <div className="scanlines w-40 overflow-hidden rounded-box border border-primary/40 shadow-lg">
-        <img
-          src={photo320}
-          srcSet={`${photo160} 160w, ${photo320} 320w, ${photo480} 480w`}
-          sizes="160px"
-          alt={`${identity.firstName} ${identity.lastName}`}
-          width={320}
-          height={302}
-          decoding="async"
-          className="block w-full"
-        />
-      </div>
-
       <p className="flex items-center gap-2 text-[0.7rem] tracking-[0.3em] text-primary uppercase">
         <span className="inline-block size-2 rounded-full bg-success" aria-hidden="true" />
         {t.status}
