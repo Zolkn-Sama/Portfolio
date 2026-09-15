@@ -1,75 +1,117 @@
-# React + TypeScript + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🌐 Portefolio
 
-Currently, two official plugins are available:
+**Portfolio personnel — parcours & projets de développement**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[![Site en ligne](https://img.shields.io/badge/site-enzo--landrecy.dev-6C63FF?style=for-the-badge)](https://enzo-landrecy.dev)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 
-## React Compiler
+**[🔗 Voir le site en ligne](https://enzo-landrecy.dev)**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+</div>
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Aperçu
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Ce site a pour but de me présenter en tant que développeur : mon parcours, mes compétences techniques, et une sélection de projets réalisés. Il sert de vitrine pour candidater, échanger avec des recruteurs ou partager mon travail.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## ✨ Fonctionnalités
 
+- 🧑‍💼 Présentation du parcours et des compétences
+- 💼 Vitrine des projets réalisés
+- 🎨 Interface moderne et responsive
+- 🧭 Navigation fluide entre les sections
+
+---
+
+## 🛠️ Technologies utilisées
+
+| Techno | Rôle |
+|---|---|
+| **React** | Bibliothèque UI |
+| **TypeScript** | Typage statique |
+| **Vite** | Bundler et serveur de développement rapide |
+| **ESLint** | Analyse statique du code |
+
+---
+
+## 📦 Prérequis
+
+- [Node.js](https://nodejs.org/) (version 18 ou supérieure recommandée)
+- npm (installé avec Node.js)
+
+---
+
+## 🔧 Installation
+
+Clonez le dépôt puis installez les dépendances :
+
+```bash
+git clone https://github.com/Zolkn-Sama/Portefolio.git
+cd Portefolio
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ▶️ Lancer le projet en local
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm run dev
 ```
+
+Le site sera accessible sur `http://localhost:5173` (port par défaut de Vite).
+
+---
+
+## 🏗️ Build de production
+
+```bash
+npm run build
+```
+
+Les fichiers optimisés pour la production seront générés dans le dossier `dist/`.
+
+Pour prévisualiser le build en local :
+
+```bash
+npm run preview
+```
+
+---
+
+## ☁️ Déploiement
+
+Ce projet est déployé sur **Cloudflare Pages** et accessible à l'adresse **[enzo-landrecy.dev](https://enzo-landrecy.dev)**.
+
+Configuration utilisée sur Cloudflare Pages :
+
+| Paramètre | Valeur |
+|---|---|
+| Commande de build | `npm run build` |
+| Répertoire de sortie | `dist` |
+
+---
+
+## 📄 Licence
+
+Ce projet est sous licence MIT — voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+---
+
+## 📬 Contact
+
+<div align="center">
+
+**Enzo Landrecy**
+
+[![Site web](https://img.shields.io/badge/Site-enzo--landrecy.dev-6C63FF?style=flat-square)](https://enzo-landrecy.dev)
+[![GitHub](https://img.shields.io/badge/GitHub-Zolkn--Sama-181717?style=flat-square&logo=github)](https://github.com/Zolkn-Sama)
+
+</div>
